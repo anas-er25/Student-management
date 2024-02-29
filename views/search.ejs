@@ -1,0 +1,225 @@
+<nav>
+  <!-- breadcrumbs -->
+  <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+    <li class="text-sm leading-normal">
+      <a class="text-white opacity-50" href="/">Tableau de bord</a>
+    </li>
+    <li
+      class="mb-2 text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
+      aria-current="page"
+    >
+      Tableau de bord
+    </li>
+  </ol>
+</nav>
+
+<div class="flex flex-wrap -mx-3">
+  <div class="flex-none w-full max-w-full px-3">
+    <div
+      class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+    >
+      <div
+        class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
+      >
+        <div class="flex items-center">
+          <p class="dark:text-gray/80 mb-2 font-bold capitalize">
+            Liste Des Etudiants
+          </p>
+          <a
+            class="inline-block px-8 py-2 mb-4 ml-auto font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85"
+            href="/add"
+          >
+            <i class="fas fa-plus"> </i>&nbsp;&nbsp;Ajouter un etudiant</a
+          >
+        </div>
+      </div>
+      <% if(students != "") { %>
+      <div class="flex-auto px-0 pt-0 pb-2">
+        <div class="p-0 overflow-x-auto">
+          <table
+            class="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500"
+          >
+            <thead class="align-bottom">
+              <tr>
+                <th
+                  class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-gray-800 text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                >
+                  Nom
+                </th>
+                <th
+                  class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-gray-800 text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                >
+                  Prénom
+                </th>
+                <th
+                  class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-gray-800 text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                >
+                  Email
+                </th>
+                <th
+                  class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-gray-800 text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                >
+                  Age
+                </th>
+                <th
+                  class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-gray-800 text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                >
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% students.forEach((student) => { %>
+              <tr>
+                <td
+                  class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                >
+                  <div class="flex px-2 py-1">
+                    <!-- <div>
+                        <img
+                          src="../assets/img/team-2.jpg"
+                          class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                          alt="user1"
+                        />
+                      </div> -->
+                    <div class="flex flex-col justify-center">
+                      <p class="mb-0 text-sm leading-normal">
+                        <%= student.nom %>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td
+                  class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                >
+                  <p
+                    class="mb-0 text-xs font-semibold leading-tight dark:opacity-80"
+                  >
+                    <%= student.prenom %>
+                  </p>
+                </td>
+                <td
+                  class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                >
+                  <%= student.email %>
+                </td>
+                <td
+                  class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                >
+                  <%= student.age %>
+                </td>
+                <td
+                  class="flex items-center justify-center text-sm p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                >
+                  <a href="/view/<%= student._id %>">
+                    <i
+                      class="mr-2 fas fa-eye"
+                      aria-hidden="true"
+                      style="color: blue"
+                    ></i>
+                  </a>
+                  <a href="/edit/<%= student._id %>">
+                    <i
+                      class="mr-2 fas fa-pencil-alt"
+                      aria-hidden="true"
+                      style="color: green"
+                    ></i>
+                  </a>
+                  <form
+                    action="/delete/<%= student._id %>?_method=DELETE"
+                    method="post"
+                    class="position-relative"
+                    id="deleteForm"
+                  >
+                    <button type="button" onclick="openConfirmationModal()">
+                      <i class="mr-2 far fa-trash-alt" style="color: red"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <% }else{; %>
+        <div class="flex justify-center items-center mb-10">
+          <h1 class="text-2xl font-bold">Aucun étudiant</h1>
+        </div>
+        <% }; %>
+      </div>
+    </div>
+  </div>
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="hidden fixed z-10 inset-0 overflow-y-auto">
+    <div
+      class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+    >
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span
+        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+        aria-hidden="true"
+        >&#8203;</span
+      >
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div
+              class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
+            >
+              <!-- Heroicon name: exclamation -->
+              <svg
+                class="h-6 w-6 text-red-600"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856a2 2 0 001.938-2.449l-6.938-19a2 2 0 00-3.876 0l-6.938 19A2 2 0 005.182 19z"
+                />
+              </svg>
+            </div>
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3
+                class="text-lg leading-6 font-medium text-gray-900"
+                id="modal-title"
+              >
+                Supprimer l'étudiant
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                  Êtes-vous sûr de vouloir supprimer cet élève ? Cette action ne
+                  peut pas être annulée.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+          <button
+            type="submit"
+            form="deleteForm"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+          >
+            Supprimer
+          </button>
+          <button
+            onclick="closeConfirmationModal()"
+            type="button"
+            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

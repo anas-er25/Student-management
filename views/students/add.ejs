@@ -1,0 +1,215 @@
+<nav>
+  <!-- breadcrumb -->
+  <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+    <li class="text-sm leading-normal">
+      <a class="text-white opacity-50" href="/">Tableau de bord</a>
+    </li>
+    <li
+      class="mb-2 text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
+      aria-current="page"
+    >
+      Ajouter etudiant
+    </li>
+  </ol>
+</nav>
+
+<div class="flex flex-wrap">
+  <div class="w-full max-w-full px-3 shrink-0 md:flex-0">
+    <div
+      class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+    >
+      <div
+        class="border-black/12.5 rounded-t-2xl border-b-0 border-solid p-6 pb-0"
+      >
+      <form action="/store" method="post">
+        <div class="flex items-center">
+          <p class="dark:text-gray/80 mb-2 font-bold capitalize">
+            Ajouter etudiant
+          </p>
+          <button
+            type="submit"
+            class="inline-block px-8 py-2 mb-4 ml-auto font-bold leading-normal text-center text-white align-middle transition-all ease-in bg-blue-500 border-0 rounded-lg shadow-md cursor-pointer text-xs tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85"
+          >
+            Sauvegarder
+          </button>
+        </div>
+      </div>
+      <div class="flex-auto p-6">
+        <p
+          class="leading-normal uppercase dark:opacity-60 text-sm"
+        >
+        Informations sur l'étudiant
+        </p>
+        
+          <div class="flex flex-wrap -mx-3">
+            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+              <div class="mb-4">
+                <label
+                  for="nom"
+                  class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-gray/80"
+                  >Nom</label
+                >
+                <input
+                  type="text"
+                  name="nom"
+                  value=""
+                  placeholder="Saisir le nom d'etudiant"
+                  required
+                  class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-gray-700 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+              <div class="mb-4">
+                <label
+                  for="prenom"
+                  class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-gray/80"
+                  >Prénom</label
+                >
+                <input
+                  type="text"
+                  name="prenom"
+                  value=""
+                  placeholder="Saisir le prénom d'etudiant"
+                  required
+                  class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-gray-700 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+              <div class="mb-4">
+                <label
+                  for="age"
+                  class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-gray/80"
+                  >Age</label
+                >
+                <input
+                  type="number"
+                  name="age"
+                  value=""
+                  placeholder="Saisir l'age de l'etudiant"
+                  required
+                  class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-gray-700 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+              <div class="mb-4">
+                <label
+                  for="last name"
+                  class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-gray/80"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  value=""
+                  placeholder="Saisir l'email de l'etudiant"
+                  class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-gray-700 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+        <!-- <hr
+          class="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent"
+        />
+
+        <p
+          class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"
+        >
+          Contact Information
+        </p>
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
+            <div class="mb-4">
+              <label
+                for="address"
+                class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-gray/80"
+                >Address</label
+              >
+              <input
+                type="text"
+                name="address"
+                value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+          </div>
+          <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+            <div class="mb-4">
+              <label
+                for="city"
+                class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80"
+                >City</label
+              >
+              <input
+                type="text"
+                name="city"
+                value="New York"
+                class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+          </div>
+          <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+            <div class="mb-4">
+              <label
+                for="country"
+                class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80"
+                >Country</label
+              >
+              <input
+                type="text"
+                name="country"
+                value="United States"
+                class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+          </div>
+          <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
+            <div class="mb-4">
+              <label
+                for="postal code"
+                class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80"
+                >Postal code</label
+              >
+              <input
+                type="text"
+                name="postal code"
+                value="437300"
+                class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+          </div>
+        </div>
+        <hr
+          class="h-px mx-0 my-4 bg-transparent border-0 opacity-25 bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent"
+        />
+
+        <p
+          class="leading-normal uppercase dark:text-white dark:opacity-60 text-sm"
+        >
+          About me
+        </p>
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-full max-w-full px-3 shrink-0 md:w-full md:flex-0">
+            <div class="mb-4">
+              <label
+                for="about me"
+                class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80"
+                >About me</label
+              >
+              <input
+                type="text"
+                name="about me"
+                value="A beautiful Dashboard for Bootstrap 5. It is Free and Open Source."
+                class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>
